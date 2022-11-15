@@ -1,54 +1,103 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal TypeScript starter
-</h1>
+# Justice plurielle
 
-## 🚀 Quick start
+## Installation
 
-1.  **Create a Gatsby site.**
+`yarn`
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+## Utilisation
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
+Vous trouverez toutes ces commandes dans le fichier package.json.
 
-2.  **Start developing.**
+### Lancer l'application pour développer
 
-    Navigate into your new site’s directory and start it up.
+`yarn dev`
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+> Cette application fonctionne avec la dernière version LTS de node.
 
-3.  **Open the code and start customizing!**
+### Lancer la construction de l'application
 
-    Your site is now running at http://localhost:8000!
+`yarn build`
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+#### Puis lancer l'application comme si vous étiez en production
 
-4.  **Learn more**
+`yarn start`
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+### Lancer les tests
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+`yarn test`
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+### Lancer les tests avec le coverage
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+`yarn test:coverage`
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+### Lancer les tests avec mutation
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+`yarn test:mutation`
 
-## 🚀 Quick start (Gatsby Cloud)
+### Lancer la vérification du typing
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+`yarn typecheck`
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+### Lancer la vérification du code
+
+`yarn lint:typescript`
+
+### Lancer la vérification du CSS
+
+`yarn lint:css`
+
+### Lancer la vérification de l'accessibilité et de la performance
+
+`yarn lighthouse`
+
+### Lancer la vérification de code mort
+
+`yarn deadcode`
+
+### Lancer la vérification de dépendance morte
+
+`yarn depcheck`
+
+## Architectural Decision Records (ADR)
+
+### Open source et Open data (14/10/22)
+
+- Rien n'empêchait le contraire
+- C'est nul d'être fermé
+
+### Framework : Gatsby (14/10/22)
+
+- Il utilise React qui est connu par une grosse majorité des développeurs
+- Déploie une version statique (fichiers HTML) du site et donc n'a pas besoin de lancer un serveur web
+- Grosse communauté
+- Très bonne documentation
+
+### Base de données : Firebase (14/10/22)
+
+- Choix du client
+- Facile pour le client de mettre à jour les données
+
+### Hébergeur : Scalingo (14/10/22)
+
+- Hébergeur Français
+- Facile d'utilisation
+- Tu payes à la minute utilisée
+- Architecture très simple
+
+### Dépôt de code : GitHub (14/10/22)
+
+- Connu de tous
+- Simple d'utilisation
+- CI gratuite
+
+### Écrire le code en Français (14/10/22)
+
+- Métier en Français
+- N'a pas vocation à s'exporter à l'étranger
+- Diminutation de la charge cognitive
+
+### Construire une Progressive Web App (PWA) (14/10/22)
+
+- Avoir du cache
+- Avoir du offline
+- Installation comme une application native

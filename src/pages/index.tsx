@@ -1,159 +1,161 @@
-import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import { Link } from 'gatsby'
+import React from 'react'
 
 const pageStyles = {
-  color: "#232129",
+  color: '#232129',
+  fontFamily: '-apple-system, Roboto, sans-serif, serif',
   padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 const headingStyles = {
-  marginTop: 0,
   marginBottom: 64,
+  marginTop: 0,
   maxWidth: 320,
 }
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
+const headingAccentStyles = { color: '#663399' }
+const paragraphStyles = { marginBottom: 48 }
 const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
+  backgroundColor: '#FFF4DB',
   borderRadius: 4,
+  color: '#8A6534',
+  fontSize: '1.25rem',
+  padding: 4,
 }
 const listStyles = {
   marginBottom: 96,
   paddingLeft: 0,
 }
-const doclistStyles = {
-  paddingLeft: 0,
-}
+const doclistStyles = { paddingLeft: 0 }
 const listItemStyles = {
-  fontWeight: 300,
   fontSize: 24,
-  maxWidth: 560,
+  fontWeight: 300,
   marginBottom: 30,
+  maxWidth: 560,
 }
 
 const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
+  color: '#8954A8',
   fontSize: 16,
-  verticalAlign: "5%",
+  fontWeight: 'bold',
+  verticalAlign: '5%',
 }
 
 const docLinkStyle = {
   ...linkStyle,
-  listStyleType: "none",
-  display: `inline-block`,
+  display: 'inline-block',
+  listStyleType: 'none',
   marginBottom: 24,
   marginRight: 12,
 }
 
 const descriptionStyle = {
-  color: "#232129",
+  color: '#232129',
   fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
   lineHeight: 1.25,
+  marginBottom: 0,
+  marginTop: 10,
 }
 
 const docLinks = [
   {
-    text: "TypeScript Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/",
-    color: "#8954A8",
+    color: '#8954A8',
+    text: 'TypeScript Documentation',
+    url: 'https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/',
   },
   {
-    text: "GraphQL Typegen Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen/",
-    color: "#8954A8",
-  }
+    color: '#8954A8',
+    text: 'GraphQL Typegen Documentation',
+    url: 'https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen/',
+  },
 ]
 
 const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
+  backgroundColor: '#088413',
+  border: '1px solid #088413',
   borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative" as "relative",
-  top: -2,
-  marginLeft: 10,
+  color: '#fff',
+  display: 'inline-block',
+  fontSize: 11,
+  fontWeight: 'bold',
+  letterSpacing: 1,
   lineHeight: 1,
+  marginLeft: 10,
+  padding: '4px 6px',
+  position: 'relative' as const,
+  top: -2,
 }
 
 const links = [
   {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
+    color: '#E95800',
+    description: "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+    text: 'Tutorial',
+    url: 'https://www.gatsbyjs.com/docs/tutorial/',
   },
   {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
+    color: '#1099A8',
+    description: "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
+    text: 'How to Guides',
+    url: 'https://www.gatsbyjs.com/docs/how-to/',
   },
   {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
+    color: '#BC027F',
+    description: "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
+    text: 'Reference Guides',
+    url: 'https://www.gatsbyjs.com/docs/reference/',
   },
   {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
+    color: '#0D96F2',
+    description: 'Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.',
+    text: 'Conceptual Guides',
+    url: 'https://www.gatsbyjs.com/docs/conceptual/',
   },
   {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
+    color: '#8EB814',
+    description: 'Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.',
+    text: 'Plugin Library',
+    url: 'https://www.gatsbyjs.com/plugins',
   },
   {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
     badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
+    color: '#663399',
+    description: 'Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!',
+    text: 'Build and Host',
+    url: 'https://www.gatsbyjs.com/cloud',
   },
 ]
 
-const IndexPage: React.FC<PageProps> = () => {
+export default function IndexPage(): React.ReactElement {
   return (
     <main style={pageStyles}>
+      <Link to="/todo">
+        {'TODO UPDATE'}
+      </Link>
       <h1 style={headingStyles}>
-        Congratulations
+        {'Congratulations'}
         <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
+        <span style={headingAccentStyles}>
+          {'— you just made a Gatsby site!mmmmmmm 🎉🎉🎉'}
+        </span>
       </h1>
       <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
-        update in real-time. 😎
+        {'Edit'}
+        {' '}
+        <code style={codeStyles}>
+          {'src/pages/index.tsx'}
+        </code>
+        {' '}
+        {'to see this page'}
+        {'update in real-time. 😎'}
       </p>
       <ul style={doclistStyles}>
-        {docLinks.map(doc => (
-          <li key={doc.url} style={docLinkStyle}>
+        {docLinks.map((doc) => (
+          <li
+            key={doc.url}
+            style={docLinkStyle}
+          >
             <a
-              style={linkStyle}
               href={`${doc.url}?utm_source=starter&utm_medium=ts-docs&utm_campaign=minimal-starter-ts`}
+              style={linkStyle}
             >
               {doc.text}
             </a>
@@ -161,21 +163,30 @@ const IndexPage: React.FC<PageProps> = () => {
         ))}
       </ul>
       <ul style={listStyles}>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
+        {links.map((link) => (
+          <li
+            key={link.url}
+            style={{ ...listItemStyles, color: link.color }}
+          >
             <span>
               <a
-                style={linkStyle}
                 href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter-ts`}
+                style={linkStyle}
               >
                 {link.text}
               </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
+              {
+                link.badge ?
+                  <span
+                    aria-label="New Badge"
+                    style={badgeStyle}
+                  >
+                    {'NEW!'}
+                  </span> : null
+              }
+              <p style={descriptionStyle}>
+                {link.description}
+              </p>
             </span>
           </li>
         ))}
@@ -188,6 +199,10 @@ const IndexPage: React.FC<PageProps> = () => {
   )
 }
 
-export default IndexPage
-
-export const Head: HeadFC = () => <title>Home Page</title>
+export function Head() {
+  return (
+    <title>
+      {'Home Page'}
+    </title>
+  )
+}

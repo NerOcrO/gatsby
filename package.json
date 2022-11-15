@@ -2,29 +2,64 @@
   "name": "justice-plurielle-2",
   "version": "1.0.0",
   "private": true,
-  "description": "justice-plurielle-2",
-  "author": "Fabien Mercier",
-  "keywords": [
-    "gatsby"
-  ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "typecheck": "tsc --noEmit"
+    "deadcode": "ts-prune --ignore 'src/pages|gatsby-config.ts'",
+    "depcheck": "depcheck",
+    "dev": "gatsby develop",
+    "lighthouse": "lhci autorun",
+    "lint:css": "stylelint 'src/**/*.css'",
+    "lint:typescript": "npx eslint src",
+    "start": "gatsby serve",
+    "test": "jest --coverage",
+    "test:coverage": "yarn test --coverage",
+    "test:mutation": "npx stryker run",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "gatsby": "^5.0.0",
     "gatsby-plugin-manifest": "^5.0.0",
+    "gatsby-plugin-offline": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8",
+    "@babel/preset-typescript": "^7.18.6",
+    "@lhci/cli": "^0.10.0",
+    "@stryker-mutator/core": "^6.3.0",
+    "@stryker-mutator/jest-runner": "^6.3.0",
+    "@stryker-mutator/typescript-checker": "^6.3.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/jest": "^29.2.2",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "babel-jest": "^29.3.1",
+    "babel-preset-gatsby": "^3.0.0",
+    "depcheck": "^1.4.3",
+    "eslint": "^8.27.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.5",
+    "eslint-plugin-jest-formatting": "^3.1.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^5.9.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "react-test-renderer": "^18.2.0",
+    "stylelint": "^14.15.0",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-order": "^5.0.0",
+    "ts-node": "^10.9.1",
+    "ts-prune": "^0.10.3",
     "typescript": "^4.8.4"
-  }
+  },
+  "engines": {
+    "node": "18.12.1"
+  },
+  "packageManager": "yarn@3.2.4"
 }
